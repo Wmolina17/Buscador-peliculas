@@ -15,19 +15,18 @@ function searchMovies(){
         
         fetch(`${urlBase}?api_key=${apiKey}&query=${searchInput}`)
         .then(response => response.json())
-        .then(response => displayMovies(response.results))
-        
-    }, 1500);
+        .then(response => displayMovies(response.results))        
+    }, 100);
 
     let parrafo_abajo2 = document.getElementById("p-abajo-titulo").innerHTML = " "
-    resul_container.classList.add("cargando-center")
+    // resul_container.classList.add("cargando-center")
     resul_container.innerHTML = ""
 }
 
 function displayMovies(movies){
     
     resul_container.innerHTML = ""
-    resul_container.classList.remove("cargando-center")
+    // resul_container.classList.remove("cargando-center")
     
 
     if(movies.length === 0){
@@ -43,7 +42,7 @@ function displayMovies(movies){
         title.textContent = movie.title ;
 
         let releaseDate = document.createElement("h4")
-        releaseDate.textContent ="la fecha de lanzamiento fue :" + movie.release_date
+        releaseDate.textContent ="Fecha de lanzamiento : " + movie.release_date
 
         let description = document.createElement("p")
         description.textContent = movie.overview
